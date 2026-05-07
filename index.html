@@ -2630,41 +2630,6 @@ function CursorGlow({ targetRef }) {
   return <div ref={ref} className="cursor-glow" style={{ opacity: 0, left: "-9999px", top: "-9999px" }} />;
 }
 
-function SubjectsStrip({ lang }) {
-  const subjects = [
-    "Matematika",
-    "Milliy sertifikat",
-    "Attestatsiya",
-    "DTM",
-    "Geografiya",
-    "Tarix",
-  ];
-  const eyebrow = {uz:"Yo'nalishlar",ru:"Направления",en:"Subjects"}[lang]||"Subjects";
-  return (
-    <section className="relative py-10 lg:py-12 overflow-hidden" style={{ borderTop: "1px solid var(--hairline)" }}>
-      <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
-        <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] mb-6" style={{ color: "var(--gold)" }}>
-          <span className="h-px w-8" style={{ background: "var(--gold)", opacity: 0.6 }}/>
-          <span style={{ fontFamily: "Inter, sans-serif" }}>{eyebrow}</span>
-        </div>
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-4 lg:gap-x-12">
-          {subjects.map((s, i) => (
-            <Reveal key={s} delay={i * 70}>
-              <div className="group flex items-center gap-3 cursor-default">
-                <span className="w-1.5 h-1.5 rounded-full transition-all group-hover:scale-150" style={{ background: "var(--gold)" }}/>
-                <span className="text-[clamp(20px,2.4vw,32px)] tracking-tight transition-colors group-hover:text-[var(--gold)]"
-                      style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500, color: "var(--fg)" }}>
-                  {s}
-                </span>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Marquee({ items }) {
   const doubled = [...items, ...items];
   return (
@@ -2775,6 +2740,12 @@ function App() {
 
   const marqueeItems = React.useMemo(() => [
     "IELTS", "SAT", "TOEFL", "General English",
+    "Matematika",
+    {uz:"Milliy sertifikat", ru:"Национальный сертификат", en:"National certificate"}[lang] || "National certificate",
+    {uz:"Attestatsiya", ru:"Аттестация", en:"Attestation"}[lang] || "Attestation",
+    "DTM",
+    {uz:"Geografiya", ru:"География", en:"Geography"}[lang] || "Geography",
+    {uz:"Tarix", ru:"История", en:"History"}[lang] || "History",
     {uz:"Prezident maktabi", ru:"Президентская школа", en:"Presidential School"}[lang] || "Presidential School",
     "Speaking Club",
     {uz:"Kichik guruhlar", ru:"Малые группы", en:"Small groups"}[lang] || "Small groups",
@@ -2797,7 +2768,6 @@ function App() {
         ) : (
           <>
             <Hero t={t} heroBg={tweaksObj.heroBg} />
-            <SubjectsStrip lang={lang} />
             <Marquee items={marqueeItems} />
             <TopResults t={t} lang={lang} />
             <Stats t={t} />
