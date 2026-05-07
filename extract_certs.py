@@ -105,6 +105,41 @@ def parse_cefr(text):
         out["issued"] = m.group(1); out["expires"] = m.group(2)
     return out
 
+def parse_trf(text):
+    """British Council / IDP IELTS Test Report Form."""
+    out = {"kind": "trf", "subject": "IELTS"}
+    lines = [l.strip() for l in text.split("\n") if l.strip()]
+    # surname is the first ALL-CAPS standalone line after "Candidate Details"
+    try:
+        idx = next(i for i, l in enumerate(lines) if l.startswith("Candidate Details"))
+        rest = lines[idx+1:]
+    except StopIteration:
+        rest = lines
+    name_lines = []
+    for l in rest:
+        if re.fullmatch(r"[A-Zʻʼ‘’\-' ]{2,}", l):
+            name_lines.append(l)
+            if len(name_lines) >= 2:
+                break
+    if len(name_lines) >= 2:
+        out["surname"] = name_lines[0]
+        out["first_name"] = name_lines[1]
+    # band + level
+    m = re.search(r"Listening\s+(\d\.\d)\s+Reading\s+(\d\.\d)\s+Writing\s+(\d\.\d)\s+Speaking\s+(\d\.\d)\s+Band\s+(\d\.\d)\s+(C2|C1|B2|B1|A2|A1)", text)
+    if m:
+        out["scores"] = {"listening": m.group(1), "reading": m.group(2), "writing": m.group(3), "speaking": m.group(4)}
+        out["score"] = m.group(5)  # overall band as numeric "score"
+        out["level"] = m.group(6)
+    else:
+        # fallback: look for any standalone band like "7.0" near "Band"
+        m = re.search(r"\b(C2|C1|B2|B1|A2|A1)\b", text)
+        if m: out["level"] = m.group(1)
+    m = re.search(r"Centre Number\s+\S+\s+(\d{1,2}/[A-Z]{3}/\d{4})", text)
+    if m: out["issued"] = m.group(1)
+    m = re.search(r"Candidate Number\s+(\d+)", text)
+    if m: out["cert_no"] = m.group(1)
+    return out
+
 def parse_pdf(path):
     try:
         with pdfplumber.open(path) as pdf:
@@ -113,7 +148,9 @@ def parse_pdf(path):
                 text += (p.extract_text() or "") + "\n"
     except Exception as e:
         return {"raw": "", "error": str(e)}
-    if "Sertifikat raqami:" in text:
+    if "Test Report Form" in text:
+        out = parse_trf(text)
+    elif "Sertifikat raqami:" in text:
         out = parse_national(text)
     elif "INGLIZ TILI" in text:
         out = parse_cefr(text)
@@ -126,10 +163,15 @@ def parse_pdf(path):
     if parts: out["full_name"] = " ".join(parts)
     return out
 
+import shutil
+ROOT = r"D:\CLAUDE\ELEGANT\assets\Teachers Achievements"
+
 results = {}
+seen_keys = {}
 for tdir, items in qr_data.items():
     print(f"\n=== {tdir} ===", flush=True)
     students = []
+    seen = set()
     for it in items:
         for url in it["urls"]:
             fname = url.rsplit("/",1)[-1]
@@ -140,10 +182,38 @@ for tdir, items in qr_data.items():
             data["source_photo"] = it["file"]
             data["url"] = url
             data["pdf_local"] = "assets/Student Certificates/" + fname
+            parts = [data.get("first_name",""), data.get("surname",""), data.get("father","")]
+            parts = [" ".join(w.capitalize() for w in p.split()) for p in parts if p]
+            if parts: data["full_name"] = " ".join(parts)
+            key = (data.get("full_name") or "") + "|" + fname
+            if key in seen: continue
+            seen.add(key)
             students.append(data)
             n = data.get("full_name","?")
             s = data.get("score") or data.get("level") or data.get("grade") or "?"
             print(f"  {fname[:30]:30s} {n[:40]:40s} {s}", flush=True)
+
+    # also pick up local PDFs in the achievements folder (e.g. raw IELTS PDFs)
+    full_ach = os.path.join(ROOT, tdir)
+    if os.path.isdir(full_ach):
+        for f in sorted(os.listdir(full_ach)):
+            if not f.lower().endswith('.pdf'): continue
+            src = os.path.join(full_ach, f)
+            dst = os.path.join(CERT_DIR, f)
+            if not os.path.exists(dst): shutil.copy2(src, dst)
+            data = parse_pdf(src)
+            data["source_pdf"] = f
+            data["pdf_local"] = "assets/Student Certificates/" + f
+            parts = [data.get("first_name",""), data.get("surname",""), data.get("father","")]
+            parts = [" ".join(w.capitalize() for w in p.split()) for p in parts if p]
+            if parts: data["full_name"] = " ".join(parts)
+            key = (data.get("full_name") or "") + "|" + f
+            if key in seen: continue
+            seen.add(key)
+            students.append(data)
+            n = data.get("full_name","?")
+            s = data.get("score") or data.get("level") or data.get("grade") or "?"
+            print(f"  +PDF {f[:30]:30s} {n[:40]:40s} {s}", flush=True)
     results[tdir] = students
 
 with open(OUT, 'w', encoding='utf-8') as fp:

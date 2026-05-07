@@ -168,6 +168,18 @@ window.TEACHERS = [
     ],
     "students": [
       {
+        "name": "Gulbahor Boymaqova",
+        "subject": "IELTS",
+        "score": "7.0",
+        "level": "C1",
+        "percent": null,
+        "issued": "24/JAN/2026",
+        "cert_no": "537707",
+        "pdf": "assets/Student Certificates/UZ00425537707-24-01-2026-ETRF.pdf",
+        "url": null,
+        "photo": null
+      },
+      {
         "name": "Munisa Sobirova Baxodir Qizi",
         "subject": "Ingliz tili",
         "score": null,
@@ -178,18 +190,6 @@ window.TEACHERS = [
         "pdf": "assets/Student Certificates/e6f82e33b70f068f4a1f33dc0b21280a.pdf",
         "url": "https://app.uzbmb.uz/cefr/certificates/e6f82e33b70f068f4a1f33dc0b21280a.pdf",
         "photo": "assets/Teachers Achievements/IELTS_Qo‘ldoshev_Fazliddin_Dilmurod o‘g‘li/photo_2026-05-07_15-33-53.jpg"
-      },
-      {
-        "name": "It Is Recommended That The Candidate’s Language Ability As Indicated In This Test Report Form Be Re-assessed After Two Years From The Date Of The Test. Note Centre Number Uz004 24/jan/2026 Candidate Number 537707",
-        "subject": "Ingliz tili",
-        "score": null,
-        "level": "C1",
-        "percent": null,
-        "issued": null,
-        "cert_no": null,
-        "pdf": "assets/Student Certificates/UZ00425537707-24-01-2026-ETRF.pdf",
-        "url": null,
-        "photo": null
       },
       {
         "name": "Sayidislom Xolmirzayev Feruz O‘g‘li",
@@ -209,8 +209,8 @@ window.TEACHERS = [
         "score": null,
         "level": "B2",
         "percent": null,
-        "issued": null,
-        "cert_no": null,
+        "issued": "13.11.2025",
+        "cert_no": "25BBA1531613AZ",
         "pdf": "assets/Student Certificates/0510a629ad8bd16017e99ed1b1e46aa6.pdf",
         "url": null,
         "photo": null
@@ -221,8 +221,8 @@ window.TEACHERS = [
         "score": null,
         "level": "B2",
         "percent": null,
-        "issued": null,
-        "cert_no": null,
+        "issued": "30.05.2025",
+        "cert_no": "25BBA1409667RD",
         "pdf": "assets/Student Certificates/54389fce26a8ae0fd27b1c3e7a1a1f7d.pdf",
         "url": null,
         "photo": null
@@ -233,8 +233,8 @@ window.TEACHERS = [
         "score": null,
         "level": "B2",
         "percent": null,
-        "issued": null,
-        "cert_no": null,
+        "issued": "13.03.2026",
+        "cert_no": "26BBA1644782RL",
         "pdf": "assets/Student Certificates/Lobarxon.pdf",
         "url": null,
         "photo": null
@@ -245,8 +245,8 @@ window.TEACHERS = [
         "score": null,
         "level": "B2",
         "percent": null,
-        "issued": null,
-        "cert_no": null,
+        "issued": "13.03.2026",
+        "cert_no": "26BBA1644686RM",
         "pdf": "assets/Student Certificates/Muslima Ravshanova.pdf",
         "url": null,
         "photo": null
@@ -257,8 +257,8 @@ window.TEACHERS = [
         "score": null,
         "level": "B2",
         "percent": null,
-        "issued": null,
-        "cert_no": null,
+        "issued": "13.03.2026",
+        "cert_no": "26BBA1644587UR",
         "pdf": "assets/Student Certificates/Ro'zimurod.pdf",
         "url": null,
         "photo": null
@@ -269,8 +269,8 @@ window.TEACHERS = [
         "score": null,
         "level": "B2",
         "percent": null,
-        "issued": null,
-        "cert_no": null,
+        "issued": "13.03.2026",
+        "cert_no": "26BBA1645249AS",
         "pdf": "assets/Student Certificates/Shohruh.pdf",
         "url": null,
         "photo": null
@@ -281,15 +281,15 @@ window.TEACHERS = [
         "score": null,
         "level": "B2",
         "percent": null,
-        "issued": null,
-        "cert_no": null,
+        "issued": "13.03.2026",
+        "cert_no": "26BBA1644540MS",
         "pdf": "assets/Student Certificates/Sunnat.pdf",
         "url": null,
         "photo": null
       }
     ],
     "studentCount": 10,
-    "topScore": null,
+    "topScore": "7.0",
     "topLevel": "C1",
     "folder": "IELTS_Qo‘ldoshev_Fazliddin_Dilmurod o‘g‘li"
   },
