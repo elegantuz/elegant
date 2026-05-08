@@ -228,12 +228,23 @@ const TRANSLATIONS = {
       sub: "Har bir kurs aniq maqsad va o'lchanadigan natija bilan tuzilgan.",
       more: "Batafsil",
       list: [
-        { tag: "IELTS", name: "IELTS Academic", desc: "Xalqaro ingliz tili imtihoniga to'liq tayyorgarlik. Speaking, Writing, Reading, Listening.", level: "B1 → C1", weeks: "12 hafta" },
-        { tag: "SAT", name: "SAT Preparation", desc: "AQSh universitetlariga kirish imtihoni. Math + Evidence-Based Reading & Writing.", level: "Advanced", weeks: "16 hafta" },
-        { tag: "General", name: "General English", desc: "Boshlang'ichdan ilg'or darajagacha. Kundalik muloqot, grammatika, lug'at.", level: "A1 → C1", weeks: "Modul · 8 hafta" },
-        { tag: "PSchool", name: "Prezident maktabiga tayyorlov", desc: "Maxsus tayyorgarlik dasturi: matematika, ingliz tili, mantiq.", level: "5–9 sinflar", weeks: "Yillik kurs" },
-        { tag: "TOEFL", name: "TOEFL iBT", desc: "Akademik ingliz tili va xalqaro talabalar uchun standart imtihon.", level: "B2 → C1", weeks: "10 hafta" },
-        { tag: "Speaking", name: "Speaking Club", desc: "Haftalik amaliyot klubi. Native speakerlar bilan jonli muloqot.", level: "A2+", weeks: "Doimiy" },
+        { tag: "PreSAT", name: "Pre-SAT", desc: "SATga muvaffaqiyatli tayyorgarlikning birinchi bosqichi. Math va Reading asoslari.", level: "Boshlang'ich", weeks: "12 hafta" },
+        { tag: "General", name: "General English", desc: "Boshlang'ichdan ilg'or darajagacha. Kundalik muloqot, grammatika va lug'at boyligi.", level: "A1 → C1", weeks: "Modul · 8 hafta" },
+        { tag: "MathDTM", name: "Matematika DTM", desc: "Davlat test markazi imtihonlariga kuchli tayyorgarlik. Algebra va geometriya.", level: "Maktab → DTM", weeks: "8 oy" },
+        { tag: "Bio", name: "Biologiya", desc: "DTM va milliy sertifikat uchun mukammal biologiya kursi. Sitologiya, genetika, ekologiya.", level: "Maktab → DTM", weeks: "8 oy" },
+        { tag: "History", name: "Tarix", desc: "O'zbekiston va jahon tarixi. Sanalar emas — voqealar mantig'i.", level: "Maktab → DTM", weeks: "8 oy" },
+        { tag: "OnaTili", name: "Ona tili", desc: "O'zbek tili va adabiyoti. Yozma ish, insho va imloning sirlarini o'rganish.", level: "Maktab → DTM", weeks: "8 oy" },
+        { tag: "Chem", name: "Kimyo", desc: "Anorganik va organik kimyo. Reaksiyalar, masalalar, laboratoriya yondashuvi.", level: "Maktab → DTM", weeks: "8 oy" },
+        { tag: "Geo", name: "Geografiya", desc: "Fizik va iqtisodiy geografiya. Jahon va O'zbekiston geografiyasi.", level: "Maktab → DTM", weeks: "8 oy" },
+        { tag: "Nature", name: "Tabiiy fan", desc: "Maktab tabiiy fani sertifikatiga maxsus tayyorlov. Aralash mavzular.", level: "Maktab", weeks: "Yillik kurs" },
+        { tag: "IELTS", name: "IELTS", desc: "Xalqaro ingliz tili imtihoniga to'liq tayyorgarlik. Speaking, Writing, Reading, Listening.", level: "B1 → C1", weeks: "12 hafta" },
+        { tag: "SAT", name: "SAT", desc: "AQSh universitetlariga kirish imtihoni. Math + Evidence-Based Reading & Writing.", level: "Advanced", weeks: "16 hafta" },
+        { tag: "CEFR", name: "CEFR", desc: "Milliy ingliz tili sertifikati. A1 dan C1 gacha barcha darajalar uchun.", level: "A1 → C1", weeks: "10 hafta" },
+        { tag: "Milliy", name: "Milliy sertifikat", desc: "Universitetga kirish uchun milliy sertifikat. Barcha fanlar bo'yicha tayyorgarlik.", level: "Universitet", weeks: "Modul" },
+        { tag: "Prezident", name: "Prezident maktabga tayyorlov", desc: "Prezident maktabga kirish: matematika, ingliz tili, mantiq, ona tili.", level: "5–9 sinflar", weeks: "Yillik kurs" },
+        { tag: "Ixtisos", name: "Ixtisoslashgan maktabga tayyorlov", desc: "Ixtisoslashgan maktablarga muvaffaqiyatli tayyorgarlik dasturi.", level: "5–9 sinflar", weeks: "Yillik kurs" },
+        { tag: "AlBeruniy", name: "Al-Beruniy maktabga tayyorlov", desc: "Al-Beruniy nomidagi maktab uchun maxsus tayyorlov dasturi.", level: "5–9 sinflar", weeks: "Yillik kurs" },
+        { tag: "AlXorazmiy", name: "Al-Xorazmiy maktabga tayyorlov", desc: "Al-Xorazmiy nomidagi maktab uchun maxsus tayyorlov dasturi.", level: "5–9 sinflar", weeks: "Yillik kurs" },
       ],
     },
     teachers: {
@@ -254,8 +265,8 @@ const TRANSLATIONS = {
       items: [
         { t: "Tajribali o'qituvchilar", d: "Har bir o'qituvchi xalqaro sertifikatga ega va doimiy malaka oshiradi." },
         { t: "Zamonaviy metodika", d: "Cambridge va Oxford materiallari, interaktiv platformalar." },
-        { t: "Kichik guruhlar", d: "Maks. 8 talaba — har birga shaxsiy e'tibor." },
-        { t: "Qulay joylashuv", d: "Markazda, metro yaqinida. Bepul parking." },
+        { t: "Shaxsiy yondashuv", d: "Har bir talaba uchun individual o'quv rejasi va doimiy nazorat." },
+        { t: "Qulay joylashuv", d: "Toshkent shahar markazida, qulay transport tarmog'i bilan." },
         { t: "Bepul sinov darsi", d: "Boshlamasdan oldin metodikamizni sinab ko'ring." },
         { t: "Kafolatlangan natija", d: "Belgilangan ballga yetmasangiz — kursni bepul takrorlaysiz." },
       ],
@@ -328,12 +339,23 @@ const TRANSLATIONS = {
       sub: "Каждый курс построен с чёткой целью и измеримым результатом.",
       more: "Подробнее",
       list: [
-        { tag: "IELTS", name: "IELTS Academic", desc: "Полная подготовка к международному экзамену. Speaking, Writing, Reading, Listening.", level: "B1 → C1", weeks: "12 недель" },
-        { tag: "SAT", name: "SAT Preparation", desc: "Экзамен для поступления в университеты США. Math + Evidence-Based Reading & Writing.", level: "Advanced", weeks: "16 недель" },
+        { tag: "PreSAT", name: "Pre-SAT", desc: "Первая ступень успешной подготовки к SAT. Основы Math и Reading.", level: "Начальный", weeks: "12 недель" },
         { tag: "General", name: "General English", desc: "От начального до продвинутого. Общение, грамматика, лексика.", level: "A1 → C1", weeks: "Модуль · 8 недель" },
-        { tag: "PSchool", name: "Президентская школа", desc: "Специальная программа: математика, английский, логика.", level: "5–9 классы", weeks: "Годовой курс" },
-        { tag: "TOEFL", name: "TOEFL iBT", desc: "Академический английский для иностранных студентов.", level: "B2 → C1", weeks: "10 недель" },
-        { tag: "Speaking", name: "Speaking Club", desc: "Еженедельный разговорный клуб с носителями языка.", level: "A2+", weeks: "Постоянно" },
+        { tag: "MathDTM", name: "Математика DTM", desc: "Сильная подготовка к экзамену ГЦТ. Алгебра и геометрия.", level: "Школа → ГЦТ", weeks: "8 месяцев" },
+        { tag: "Bio", name: "Биология", desc: "Идеальный курс по биологии для ГЦТ и национального сертификата.", level: "Школа → ГЦТ", weeks: "8 месяцев" },
+        { tag: "History", name: "История", desc: "История Узбекистана и мира. Не даты, а логика событий.", level: "Школа → ГЦТ", weeks: "8 месяцев" },
+        { tag: "OnaTili", name: "Родной язык", desc: "Узбекский язык и литература. Письменные работы, эссе и тонкости орфографии.", level: "Школа → ГЦТ", weeks: "8 месяцев" },
+        { tag: "Chem", name: "Химия", desc: "Неорганическая и органическая химия. Реакции, задачи, лабораторный подход.", level: "Школа → ГЦТ", weeks: "8 месяцев" },
+        { tag: "Geo", name: "География", desc: "Физическая и экономическая география. Мир и Узбекистан.", level: "Школа → ГЦТ", weeks: "8 месяцев" },
+        { tag: "Nature", name: "Естествознание", desc: "Подготовка к школьному сертификату по естествознанию. Смешанные темы.", level: "Школа", weeks: "Годовой курс" },
+        { tag: "IELTS", name: "IELTS", desc: "Полная подготовка к международному экзамену. Speaking, Writing, Reading, Listening.", level: "B1 → C1", weeks: "12 недель" },
+        { tag: "SAT", name: "SAT", desc: "Экзамен для поступления в университеты США. Math + Evidence-Based Reading & Writing.", level: "Advanced", weeks: "16 недель" },
+        { tag: "CEFR", name: "CEFR", desc: "Национальный сертификат по английскому языку. От A1 до C1.", level: "A1 → C1", weeks: "10 недель" },
+        { tag: "Milliy", name: "Национальный сертификат", desc: "Сертификат для поступления в университет. Подготовка по всем предметам.", level: "Университет", weeks: "Модуль" },
+        { tag: "Prezident", name: "Президентская школа", desc: "Поступление в президентскую школу: математика, английский, логика, родной язык.", level: "5–9 классы", weeks: "Годовой курс" },
+        { tag: "Ixtisos", name: "Специализированная школа", desc: "Программа подготовки для специализированных школ.", level: "5–9 классы", weeks: "Годовой курс" },
+        { tag: "AlBeruniy", name: "Школа Аль-Беруни", desc: "Специальная программа подготовки в школу имени Аль-Беруни.", level: "5–9 классы", weeks: "Годовой курс" },
+        { tag: "AlXorazmiy", name: "Школа Аль-Хорезми", desc: "Специальная программа подготовки в школу имени Аль-Хорезми.", level: "5–9 классы", weeks: "Годовой курс" },
       ],
     },
     teachers: {
@@ -354,8 +376,8 @@ const TRANSLATIONS = {
       items: [
         { t: "Опытные преподаватели", d: "Каждый имеет международный сертификат и постоянно повышает квалификацию." },
         { t: "Современная методика", d: "Материалы Cambridge и Oxford, интерактивные платформы." },
-        { t: "Малые группы", d: "Макс. 8 студентов — каждому персональное внимание." },
-        { t: "Удобная локация", d: "В центре, у метро. Бесплатная парковка." },
+        { t: "Индивидуальный подход", d: "Персональный учебный план и постоянный контроль для каждого студента." },
+        { t: "Удобная локация", d: "В центре Ташкента, с удобной транспортной развязкой." },
         { t: "Бесплатный пробный урок", d: "Попробуйте нашу методику до записи." },
         { t: "Гарантия результата", d: "Не достигли цели — повторите курс бесплатно." },
       ],
@@ -428,12 +450,23 @@ const TRANSLATIONS = {
       sub: "Every program is built around a clear goal and a measurable result.",
       more: "Learn more",
       list: [
-        { tag: "IELTS", name: "IELTS Academic", desc: "Comprehensive prep for the international English exam. Speaking, Writing, Reading, Listening.", level: "B1 → C1", weeks: "12 weeks" },
-        { tag: "SAT", name: "SAT Preparation", desc: "Admissions exam for U.S. universities. Math + Evidence-Based Reading & Writing.", level: "Advanced", weeks: "16 weeks" },
+        { tag: "PreSAT", name: "Pre-SAT", desc: "First step toward SAT readiness. Foundations in Math and Reading.", level: "Foundation", weeks: "12 weeks" },
         { tag: "General", name: "General English", desc: "Beginner to advanced. Conversation, grammar, vocabulary.", level: "A1 → C1", weeks: "Module · 8 weeks" },
-        { tag: "PSchool", name: "Presidential School Prep", desc: "Tailored program: maths, English, logic.", level: "Grades 5–9", weeks: "Year-long" },
-        { tag: "TOEFL", name: "TOEFL iBT", desc: "Academic English for international students.", level: "B2 → C1", weeks: "10 weeks" },
-        { tag: "Speaking", name: "Speaking Club", desc: "Weekly conversation club with native speakers.", level: "A2+", weeks: "Ongoing" },
+        { tag: "MathDTM", name: "Maths DTM", desc: "Solid prep for the State Testing Centre exam. Algebra and geometry.", level: "School → DTM", weeks: "8 months" },
+        { tag: "Bio", name: "Biology", desc: "Comprehensive biology for DTM and national certificate. Cytology, genetics, ecology.", level: "School → DTM", weeks: "8 months" },
+        { tag: "History", name: "History", desc: "Uzbek and world history. Not dates — the logic of events.", level: "School → DTM", weeks: "8 months" },
+        { tag: "OnaTili", name: "Native language", desc: "Uzbek language and literature. Essays, writing, and the subtleties of orthography.", level: "School → DTM", weeks: "8 months" },
+        { tag: "Chem", name: "Chemistry", desc: "Inorganic and organic chemistry. Reactions, problems, hands-on approach.", level: "School → DTM", weeks: "8 months" },
+        { tag: "Geo", name: "Geography", desc: "Physical and economic geography. World and Uzbekistan.", level: "School → DTM", weeks: "8 months" },
+        { tag: "Nature", name: "Natural science", desc: "Prep for the school natural-science certificate. Mixed topics.", level: "School", weeks: "Year-long" },
+        { tag: "IELTS", name: "IELTS", desc: "Comprehensive prep for the international English exam. Speaking, Writing, Reading, Listening.", level: "B1 → C1", weeks: "12 weeks" },
+        { tag: "SAT", name: "SAT", desc: "Admissions exam for U.S. universities. Math + Evidence-Based Reading & Writing.", level: "Advanced", weeks: "16 weeks" },
+        { tag: "CEFR", name: "CEFR", desc: "National English certificate. All levels from A1 to C1.", level: "A1 → C1", weeks: "10 weeks" },
+        { tag: "Milliy", name: "National certificate", desc: "University-entry national certificate. Preparation across all subjects.", level: "University", weeks: "Module" },
+        { tag: "Prezident", name: "Presidential School prep", desc: "Entry exam prep: maths, English, logic, native language.", level: "Grades 5–9", weeks: "Year-long" },
+        { tag: "Ixtisos", name: "Specialised School prep", desc: "Tailored prep program for specialised schools.", level: "Grades 5–9", weeks: "Year-long" },
+        { tag: "AlBeruniy", name: "Al-Beruni School prep", desc: "Custom prep program for Al-Beruni school admissions.", level: "Grades 5–9", weeks: "Year-long" },
+        { tag: "AlXorazmiy", name: "Al-Khorazmi School prep", desc: "Custom prep program for Al-Khorazmi school admissions.", level: "Grades 5–9", weeks: "Year-long" },
       ],
     },
     teachers: {
@@ -454,8 +487,8 @@ const TRANSLATIONS = {
       items: [
         { t: "Expert teachers", d: "Every teacher holds an international certification and trains continuously." },
         { t: "Modern methodology", d: "Cambridge and Oxford materials, interactive platforms." },
-        { t: "Small groups", d: "Max 8 students — personal attention for each one." },
-        { t: "Convenient location", d: "Central, near the metro. Free parking." },
+        { t: "Personal approach", d: "An individual study plan and continuous progress checks for every student." },
+        { t: "Convenient location", d: "In central Tashkent, with easy transport connections." },
         { t: "Free trial lesson", d: "Try our method before you enroll." },
         { t: "Outcome guarantee", d: "Don't hit your target? Retake the course free." },
       ],
@@ -1076,12 +1109,26 @@ function Stats({ t }) {
 
 // =============== COURSES ===============
 const COURSE_VISUAL = {
-  IELTS: { hue: 220, photo: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=800&q=80" },
-  SAT: { hue: 38, photo: "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=800&q=80" },
-  General: { hue: 160, photo: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80" },
-  PSchool: { hue: 280, photo: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80" },
-  TOEFL: { hue: 12, photo: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80" },
-  Speaking: { hue: 195, photo: "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=800&q=80" },
+  // English / international exams
+  IELTS:      { photo: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=800&q=80" },
+  SAT:        { photo: "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=800&q=80" },
+  PreSAT:     { photo: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80" },
+  CEFR:       { photo: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&q=80" },
+  General:    { photo: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80" },
+  // DTM / national subjects
+  MathDTM:    { photo: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80" },
+  Bio:        { photo: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&q=80" },
+  Chem:       { photo: "https://images.unsplash.com/photo-1532634922-8fe0b757fb13?w=800&q=80" },
+  History:    { photo: "https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=800&q=80" },
+  OnaTili:    { photo: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80" },
+  Geo:        { photo: "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80" },
+  Nature:     { photo: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=800&q=80" },
+  Milliy:     { photo: "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=800&q=80" },
+  // School entry programs
+  Prezident:  { photo: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80" },
+  Ixtisos:    { photo: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&q=80" },
+  AlBeruniy:  { photo: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80" },
+  AlXorazmiy: { photo: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800&q=80" },
 };
 
 function Courses({ t }) {
@@ -1186,43 +1233,50 @@ function Teachers({ t }) {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8">
           {list.map((tch, i) => {
+            const cl = window.__currentLang || "uz";
             const subj = tch.subject;
             const top = tch.topScore ? (tch.topScore + " ball") : (tch.topLevel || "—");
+            const labelStudents = {uz:"Talaba",ru:"Студент",en:"Students"}[cl];
+            const labelCerts = {uz:"Sertifikat",ru:"Сертификат",en:"Cert."}[cl];
+            const labelOpen = {uz:"Ko'rish",ru:"Открыть",en:"Open"}[cl];
             return (
               <Reveal key={tch.slug} delay={i * 80}>
                 <Tilt3D max={9} className="h-full">
-                  <a href={"#/teacher/" + tch.slug} className="group relative block rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2" style={{ background: "var(--card)", border: "1px solid var(--hairline)" }}>
+                  <a href={"#/teacher/" + tch.slug} className="group relative flex flex-col rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 h-full" style={{ background: "var(--card)", border: "1px solid var(--hairline)" }}>
                     <div className="aspect-[3/4] relative overflow-hidden">
                       {tch.photo ? (
                         <img src={tch.photo} alt={tch.fullName} className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" />
                       ) : (
                         <TeacherInitial teacher={tch} />
                       )}
-                      <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 40%, rgba(7,13,28,0.92) 100%)" }} />
-                      <div className="absolute left-4 top-4">
+                      <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 35%, rgba(7,13,28,0.96) 100%)" }} />
+                      <div className="absolute left-4 top-4 right-4 flex items-start justify-between gap-2">
                         <span className="px-3 h-7 inline-flex items-center rounded-full text-[10px] uppercase tracking-[0.2em] font-medium backdrop-blur" style={{ background: "var(--gold)", color: "#1a1408" }}>
                           {subj}
                         </span>
                       </div>
-                      <div className="absolute right-4 top-4">
-                        <span className="px-3 h-7 inline-flex items-center gap-1.5 rounded-full text-[10px] uppercase tracking-[0.18em] font-medium backdrop-blur" style={{ background: "rgba(0,0,0,0.4)", color: "#f3eed8", border: "1px solid rgba(212,175,55,0.5)" }}>
-                          <Icon.Star /> {tch.studentCount}
-                        </span>
-                      </div>
                       <div className="absolute left-5 right-5 bottom-5 text-white">
-                        <h3 className="text-[22px] leading-[1.1]" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500 }}>{tch.fullName}</h3>
-                        <div className="mt-2 flex items-center gap-2 text-[10px] uppercase tracking-[0.22em]" style={{ color: "var(--gold)" }}>
-                          <span className="h-px w-6" style={{ background: "var(--gold)" }} />
-                          <span>{ {uz:"Eng yuqori",ru:"Лучший",en:"Top"}[(window.__currentLang||"uz")] }: {top}</span>
-                        </div>
+                        <h3 className="text-[20px] lg:text-[22px] leading-[1.1]" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500 }}>{tch.fullName}</h3>
                       </div>
                     </div>
-                    <div className="p-5 flex items-center justify-between">
-                      <span className="text-[12px] uppercase tracking-[0.22em]" style={{ color: "var(--muted)", fontFamily: "Inter, sans-serif" }}>
-                        { {uz:"Sertifikatlar",ru:"Сертификаты",en:"Certificates"}[(window.__currentLang||"uz")] }: {tch.certificates.length}
-                      </span>
-                      <span className="flex items-center gap-1 text-[12px] font-medium uppercase tracking-wider" style={{ color: "var(--gold)" }}>
-                        { {uz:"Ko'rish",ru:"Открыть",en:"Open"}[(window.__currentLang||"uz")] }
+                    <div className="p-6 flex flex-col gap-5 flex-1">
+                      <div className="grid grid-cols-3 gap-3 text-center">
+                        <div>
+                          <div className="text-[22px] leading-none" style={{ fontFamily: "'Cormorant Garamond', serif", color: "var(--gold)", fontWeight: 500 }}>{tch.studentCount}</div>
+                          <div className="mt-1.5 text-[9px] uppercase tracking-[0.2em]" style={{ color: "var(--muted)", fontFamily: "Inter, sans-serif" }}>{labelStudents}</div>
+                        </div>
+                        <div style={{ borderLeft: "1px solid var(--hairline)", borderRight: "1px solid var(--hairline)" }}>
+                          <div className="text-[22px] leading-none" style={{ fontFamily: "'Cormorant Garamond', serif", color: "var(--gold)", fontWeight: 500 }}>{tch.certificates.length}</div>
+                          <div className="mt-1.5 text-[9px] uppercase tracking-[0.2em]" style={{ color: "var(--muted)", fontFamily: "Inter, sans-serif" }}>{labelCerts}</div>
+                        </div>
+                        <div>
+                          <div className="text-[18px] leading-none truncate" style={{ fontFamily: "'Cormorant Garamond', serif", color: "var(--gold)", fontWeight: 500 }}>{tch.topScore || tch.topLevel || "—"}</div>
+                          <div className="mt-1.5 text-[9px] uppercase tracking-[0.2em]" style={{ color: "var(--muted)", fontFamily: "Inter, sans-serif" }}>{ {uz:"Eng yuqori",ru:"Лучший",en:"Top"}[cl] }</div>
+                        </div>
+                      </div>
+                      <span className="mt-auto inline-flex items-center justify-center gap-2 h-11 rounded-full text-[12px] font-medium uppercase tracking-[0.18em] transition-all"
+                            style={{ background: "transparent", color: "var(--gold)", border: "1px solid var(--hairline)", fontFamily: "Inter, sans-serif" }}>
+                        {labelOpen}
                         <span className="transition-transform group-hover:translate-x-1"><Icon.ArrowRight /></span>
                       </span>
                     </div>
@@ -1388,7 +1442,7 @@ function Pricing({ t }) {
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-[1100px] mx-auto">
           {t.pricing.tiers.map((tier, i) => (
             <Reveal key={i} delay={i * 100}>
-              <div className="relative rounded-3xl p-8 lg:p-10 h-full transition-all hover:-translate-y-1"
+              <div className="relative rounded-3xl p-8 lg:p-10 h-full flex flex-col transition-all hover:-translate-y-1"
                 style={{
                   background: tier.popular ? "var(--ink)" : "var(--card)",
                   color: tier.popular ? "#f3eed8" : "var(--fg)",
@@ -1396,17 +1450,17 @@ function Pricing({ t }) {
                   boxShadow: tier.popular ? "0 30px 60px -30px rgba(10,15,30,0.4)" : "none",
                 }}>
                 {tier.popular && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 h-7 inline-flex items-center rounded-full text-[10px] uppercase tracking-[0.25em] font-medium" style={{ background: "var(--gold)", color: "#1a1408" }}>
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 h-7 inline-flex items-center rounded-full text-[10px] uppercase tracking-[0.25em] font-medium whitespace-nowrap" style={{ background: "var(--gold)", color: "#1a1408" }}>
                     {{uz:"Tavsiya etiladi", ru:"Рекомендуем", en:"Recommended"}[(window.__currentLang||"uz")]}
                   </span>
                 )}
-                <div className="text-[12px] uppercase tracking-[0.3em]" style={{ color: tier.popular ? "var(--gold)" : "var(--muted)", fontFamily: "Inter, sans-serif" }}>{tier.name}</div>
+                <div className="text-[12px] uppercase tracking-[0.28em] leading-snug min-h-[2.5em]" style={{ color: tier.popular ? "var(--gold)" : "var(--muted)", fontFamily: "Inter, sans-serif" }}>{tier.name}</div>
                 <div className="mt-6 flex items-baseline gap-2">
                   <span className="text-[clamp(40px,4.5vw,60px)] leading-none" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500 }}>{tier.price}</span>
                   <span className="text-[13px]" style={{ color: tier.popular ? "rgba(243,238,216,0.7)" : "var(--muted)", fontFamily: "Inter, sans-serif" }}>{tier.per}</span>
                 </div>
                 <div className="my-7 h-px" style={{ background: tier.popular ? "rgba(243,238,216,0.18)" : "var(--hairline)" }}/>
-                <ul className="space-y-3">
+                <ul className="space-y-3 flex-1">
                   {tier.feats.map((f, j) => (
                     <li key={j} className="flex items-start gap-3 text-[14px]" style={{ fontFamily: "Inter, sans-serif" }}>
                       <span className="mt-0.5" style={{ color: "var(--gold)" }}><Icon.Check /></span>
@@ -2284,7 +2338,21 @@ function useRoute() {
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
-  React.useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" }); }, [route]);
+  React.useEffect(() => {
+    // Full-page navigations (main vs teacher detail) snap to top.
+    if (route === "#/" || route.startsWith("#/teacher/")) {
+      window.scrollTo({ top: 0, behavior: "instant" });
+      return;
+    }
+    // Section anchors (#contact, #courses, #teachers, etc.) — scroll the
+    // matching element into view. Wait one frame so the route-render lands first.
+    const id = route.replace(/^#\/?/, "").replace(/^#/, "");
+    if (!id) return;
+    requestAnimationFrame(() => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, [route]);
   return route;
 }
 

@@ -600,7 +600,7 @@ window.TEACHERS = [
     "firstName": "Ruslan",
     "father": "Erjan O‘g‘li",
     "fullName": "Ruslan Bo‘ronboyev Erjan O‘g‘li",
-    "photo": null,
+    "photo": "assets/Teachers Information/SAT_BO‘RONBOYEV_RUSLAN_ERJAN O‘G‘LI/photo_2026-05-08_17-12-19.jpg",
     "certificates": [
       {
         "file": "1778086793239.pdf",
