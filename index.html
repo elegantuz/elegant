@@ -1250,14 +1250,16 @@ function Teachers({ t }) {
                         <TeacherInitial teacher={tch} />
                       )}
                       <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 35%, rgba(7,13,28,0.96) 100%)" }} />
-                      <span className="absolute left-4 top-4 px-3 h-7 inline-flex items-center rounded-full text-[10px] uppercase tracking-[0.2em] font-medium backdrop-blur" style={{ background: "var(--gold)", color: "#1a1408" }}>
-                        {subj}
-                      </span>
-                      {(tch.topScore || tch.topLevel) && (
-                        <span className="absolute right-4 top-4 px-3 h-7 inline-flex items-center gap-1.5 rounded-full text-[10px] uppercase tracking-[0.18em] font-medium backdrop-blur" style={{ background: "rgba(7,13,28,0.55)", color: "var(--gold)", border: "1px solid rgba(212,175,55,0.55)" }}>
-                          <Icon.Star /> {tch.topScore || tch.topLevel}
+                      <div className="absolute left-4 right-4 top-4 flex items-start justify-between gap-3">
+                        <span className="px-3 py-1.5 inline-flex items-center rounded-full text-[10px] uppercase tracking-[0.18em] leading-tight font-medium backdrop-blur max-w-[70%]" style={{ background: "var(--gold)", color: "#1a1408" }}>
+                          {subj}
                         </span>
-                      )}
+                        {(tch.topScore || tch.topLevel) && (
+                          <span className="shrink-0 px-3 py-1.5 inline-flex items-center gap-1.5 rounded-full text-[10px] uppercase tracking-[0.18em] leading-tight font-medium backdrop-blur" style={{ background: "rgba(7,13,28,0.55)", color: "var(--gold)", border: "1px solid rgba(212,175,55,0.55)" }}>
+                            <Icon.Star /> {tch.topScore || tch.topLevel}
+                          </span>
+                        )}
+                      </div>
                       <div className="absolute left-5 right-5 bottom-5 text-white">
                         <h3 className="text-[20px] lg:text-[22px] leading-[1.1]" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500 }}>{tch.fullName}</h3>
                       </div>
