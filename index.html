@@ -1685,15 +1685,52 @@ function Contact({ t, lang }) {
     return Object.keys(e).length === 0;
   };
 
-  const submit = (ev) => {
+  const submit = async (ev) => {
     ev.preventDefault();
     if (!validate()) return;
     setStatus("sending");
-    setTimeout(() => {
+
+    // Soft throttle: refuse a second submission within 20s from the same browser
+    // to keep stray double-clicks / bored visitors from spamming the staff group.
+    const last = Number(sessionStorage.getItem("elegant.lastSubmit") || 0);
+    if (Date.now() - last < 20000) {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 4000);
+      return;
+    }
+
+    const courseLabel = (t.courses.list.find(c => c.tag === form.course) || {}).name || form.course;
+    const lines = [
+      "🎓 *Yangi ariza — ELEGANT*",
+      "",
+      "*Ism:* " + form.name,
+      "*Telefon:* " + form.phone,
+      "*Kurs:* " + courseLabel,
+      form.message ? "*Xabar:* " + form.message : null,
+      "",
+      "_" + lang.toUpperCase() + " · " + new Date().toLocaleString("uz-UZ", { dateStyle: "short", timeStyle: "short" }) + "_",
+    ].filter(Boolean).join("\n");
+
+    const TG_BOT   = "8748135379:AAHp8J6lXzHG1Rm_njd_FE-scgsX0OkudfI";
+    const TG_CHAT  = "-5299804341";  // ELEGANT — Yangi arizalar
+    const url = "https://api.telegram.org/bot" + TG_BOT + "/sendMessage";
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: TG_CHAT, text: lines, parse_mode: "Markdown", disable_web_page_preview: true }),
+      });
+      const ok = res.ok && (await res.json()).ok;
+      if (!ok) throw new Error("telegram api rejected");
+      sessionStorage.setItem("elegant.lastSubmit", String(Date.now()));
       setStatus("done");
       setForm({ name: "", phone: "", course: "", message: "" });
-      setTimeout(() => setStatus("idle"), 4000);
-    }, 1100);
+      setTimeout(() => setStatus("idle"), 4500);
+    } catch (e) {
+      console.error("Telegram submit failed", e);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 4500);
+    }
   };
 
   const inp = (name, ph, type = "text") => (
@@ -1792,8 +1829,14 @@ function Contact({ t, lang }) {
                     </a>
                   ))}
                 </div>
-                <button type="submit" disabled={status !== "idle"} className="inline-flex items-center gap-2 h-12 px-7 rounded-full text-[13px] font-medium tracking-wide transition-transform hover:scale-[1.02] disabled:opacity-70" style={{ background: status === "done" ? "#1f8a5b" : "var(--gold)", color: "#1a1408", fontFamily: "Inter, sans-serif" }}>
-                  {status === "sending" ? t.contact.submitting : status === "done" ? <span className="flex items-center gap-2"><Icon.Check /> {t.contact.success}</span> : <span className="flex items-center gap-2">{t.contact.submit} <Icon.Send /></span>}
+                <button type="submit" disabled={status === "sending"} className="inline-flex items-center gap-2 h-12 px-7 rounded-full text-[13px] font-medium tracking-wide transition-transform hover:scale-[1.02] disabled:opacity-70" style={{ background: status === "done" ? "#1f8a5b" : status === "error" ? "#c84a4a" : "var(--gold)", color: status === "error" ? "#fff" : "#1a1408", fontFamily: "Inter, sans-serif" }}>
+                  {status === "sending"
+                    ? t.contact.submitting
+                    : status === "done"
+                      ? <span className="flex items-center gap-2"><Icon.Check /> {t.contact.success}</span>
+                      : status === "error"
+                        ? <span className="flex items-center gap-2">⚠️ {({uz:"Xatolik. Qayta urinib ko'ring.",ru:"Ошибка. Попробуйте ещё раз.",en:"Failed. Please try again."}[lang]) || "Failed"}</span>
+                        : <span className="flex items-center gap-2">{t.contact.submit} <Icon.Send /></span>}
                 </button>
               </div>
             </form>
