@@ -1715,15 +1715,35 @@ function Contact({ t, lang }) {
     ].filter(Boolean).join("\n");
 
     const TG_BOT  = "8748135379:AAHp8J6lXzHG1Rm_njd_FE-scgsX0OkudfI";
-    const TG_CHAT = -5299804341;  // ELEGANT — Yangi arizalar (number, not string)
+    // ELEGANT — Yangi arizalar (supergroup form). When members are added or
+    // certain permissions are toggled Telegram silently migrates a regular
+    // group to a supergroup and the chat_id changes to a -100… number.
+    // We hard-code the current supergroup id and ALSO follow Telegram's
+    // 'migrate_to_chat_id' parameter on a 400 so a future re-migration
+    // doesn't break submissions before someone updates the code.
+    const TG_CHAT_DEFAULT = -1003810084876;
+    const TG_CHAT = Number(sessionStorage.getItem("elegant.tgChat") || TG_CHAT_DEFAULT);
     const url = "https://api.telegram.org/bot" + TG_BOT + "/sendMessage";
-    try {
+
+    async function send(chat_id) {
       const res = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ chat_id: TG_CHAT, text, disable_web_page_preview: true }),
+        body: JSON.stringify({ chat_id, text, disable_web_page_preview: true }),
       });
       const body = await res.json().catch(() => ({}));
+      return { res, body };
+    }
+
+    try {
+      let { res, body } = await send(TG_CHAT);
+      // Auto-follow a supergroup migration once.
+      if (!body.ok && body.parameters && body.parameters.migrate_to_chat_id) {
+        const newId = body.parameters.migrate_to_chat_id;
+        console.warn("Telegram chat migrated to", newId, "— retrying & caching");
+        sessionStorage.setItem("elegant.tgChat", String(newId));
+        ({ res, body } = await send(newId));
+      }
       if (!res.ok || !body.ok) {
         console.error("Telegram rejected submission:", res.status, body);
         throw new Error(body.description || ("status " + res.status));
